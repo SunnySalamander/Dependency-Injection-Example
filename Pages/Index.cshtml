@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Dependency Injection Example</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-9.0">dependency injection with ASP.NET Core</a>.</p>
+    <p>Products from any kind of product service (implements IProductService); in this case it's 'NewCoolerProductService':</p>
+
+    @if (Model.Products != null && Model.Products.Any())
+    {
+        <ul class="list-group">
+            @foreach (var product in Model.Products)
+            {
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="@product.ImageUrl" alt="@product.Name" class="me-3" style="width:200px; height:200px;" />
+                    @product.Name
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No products found.</p>
+    }
+</div>
+
